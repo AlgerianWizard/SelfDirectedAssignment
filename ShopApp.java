@@ -178,20 +178,18 @@ public class ShopApp
 
         switch(choice)
         {
-            case 1: System.out.println(itemArrayin[0].getName()); itemArrayin[0].sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + itemArrayin[0].getStockLevel());
+            case 1: System.out.println(itemArrayin[0].getName()); itemArrayin[0].setPrice(newPrice); System.out.println("New Price: " + itemArrayin[0].getPrice());
             break;
-            case 2: System.out.println(itemArrayin[1].getName()); itemArrayin[1].sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + itemArrayin[1].getStockLevel());
+            case 2: System.out.println(itemArrayin[1].getName()); itemArrayin[1].setPrice(newPrice); System.out.println("New Price: " + itemArrayin[1].getprice());
             break;
-            case 3: System.out.println(itemArrayin[2].getName()); itemArrayin[2].sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + itemArrayin[2].getStockLevel());
+            case 3: System.out.println(itemArrayin[2].getName()); itemArrayin[2].setPrice(newPrice); System.out.println("New Price: " + itemArrayin[2].getPrice());
             break;
-            case 4: System.out.println(itemArrayin[3].getName()); itemArrayin[3].sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + itemArrayin[3].getStockLevel());
+            case 4: System.out.println(itemArrayin[3].getName()); itemArrayin[3].setPrice(newPrice); System.out.println("New Price: " + itemArrayin[3].getPrice());
             break;
-            case 5: System.out.println(itemArrayin[4].getName()); itemArrayin[4].sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + itemArrayin[4].getStockLevel());
+            case 5: System.out.println(itemArrayin[4].getName()); itemArrayin[4].setPrice(newPrice); System.out.println("New Price: " + itemArrayin[4].getPrice());
             break;
             default: System.out.println("This should never print!");
         }
-
-
     }
 
     public static void TotalValue(Product[] itemArrayin)
