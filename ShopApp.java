@@ -1,10 +1,16 @@
+/* Islam Bourzah 
+ * Student Number: 2209133
+ * Self Directed Assignment */
+
+
 import java.util.Scanner;
 public class ShopApp 
-
 {
-
     public static void main(String[]args)
     {
+        System.out.println("Student Number: 2209133");
+        System.out.println("Welcome to the shop app!");
+
         //Array declared and initialized with 5 objects ranging from index 0-4         
         Product[] itemArray = new Product[5];
         itemArray[0] = new Product("Milk", 100, 1.10);
@@ -12,12 +18,6 @@ public class ShopApp
         itemArray[2] = new Product("Soda", 20, 2.0);
         itemArray[3] = new Product("Juice", 40, 1.40);
         itemArray[4] = new Product("Energy drink", 45, 0.90);
-        
-
-        itemArray[0].getName();
-        
-        System.out.println("Welcome to the shop app!");
-        
 
         int selection = UI(); //Calls UI method and assigns an integer to selection
         
@@ -114,7 +114,6 @@ public class ShopApp
             case 5: System.out.println(itemArrayin[4].getName()); itemArrayin[0].buyStock(stockAmount); System.out.println(sB + stockAmount); System.out.println(cSL + itemArrayin[0].getStockLevel());
             break;
             default: System.out.println("This should never print!");
-
             // IDEA: MAYBE ADD BACK BUTTONS OR MAYBE LOOP CUZ THEY WANNA BUY MORE STOCK?
         }
     }
@@ -131,7 +130,7 @@ public class ShopApp
             stockAmount = sc.nextInt();
         }
         
-        System.out.println("Which stock have you sold?\n1)" + itemArrayin[0].getName() + "\n2)" + item2.getName() + "\n3)" + item3.getName() + "\n4)" + item4.getName() + "\n5)" + item5.getName());
+        System.out.println("Which stock have you sold?\n1)" + itemArrayin[0].getName() + "\n2)" + itemArrayin[1].getName() + "\n3)" + itemArrayin[2].getName() + "\n4)" + itemArrayin[3].getName() + "\n5)" + itemArrayin[4].getName());
         int choice = sc.nextInt();
         
         while(choice < 1 || choice > 5)
@@ -146,11 +145,11 @@ public class ShopApp
             break;
             case 2: System.out.println(itemArrayin[1].getName()); itemArrayin[1].sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + itemArrayin[1].getStockLevel());
             break;
-            case 3: System.out.println(item3.getName()); item3.sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + item1.getStockLevel());
+            case 3: System.out.println(itemArrayin[2].getName()); itemArrayin[2].sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + itemArrayin[2].getStockLevel());
             break;
-            case 4: System.out.println(item4.getName()); item4.sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + item1.getStockLevel());
+            case 4: System.out.println(itemArrayin[3].getName()); itemArrayin[3].sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + itemArrayin[3].getStockLevel());
             break;
-            case 5: System.out.println(item5.getName()); item5.sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + item1.getStockLevel());
+            case 5: System.out.println(itemArrayin[4].getName()); itemArrayin[4].sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + itemArrayin[4].getStockLevel());
             break;
             default: System.out.println("This should never print!");
         }
@@ -158,7 +157,25 @@ public class ShopApp
 
     public static void setPrice(Product[] itemArrayin)
     {
-        //set PRICE METHOD
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a new price: ");
+        double newPrice = sc.nextDouble();
+
+        while(newPrice < 0) //Input validation while loop
+        {
+            System.out.println("Please enter a positive number for the new price!");
+            newPrice = sc.nextDouble();
+        }
+
+        System.out.println("Which product's price would you like to change?\n1)" + itemArrayin[0].getName() + "\n2)" + itemArrayin[1].getName() + "\n3)" + itemArrayin[2].getName() + "\n4)" + itemArrayin[3].getName() + "\n5)" + itemArrayin[4].getName());
+        sc.nextDouble();
+
+        while(choice < 1 || choice > 5) //Input validation while loop
+        {
+            System.out.println("Invalid input, please enter a number in range 1-5");
+            choice = sc.nextInt();
+        }
+
     }
 
     public static void TotalValue(Product[] itemArrayin)
