@@ -131,7 +131,7 @@ public class ShopApp
             stockAmount = sc.nextInt();
         }
         
-        System.out.println("Which stock have you sold?\n1)" + item1.getName() + "\n2)" + item2.getName() + "\n3)" + item3.getName() + "\n4)" + item4.getName() + "\n5)" + item5.getName());
+        System.out.println("Which stock have you sold?\n1)" + itemArrayin[0].getName() + "\n2)" + item2.getName() + "\n3)" + item3.getName() + "\n4)" + item4.getName() + "\n5)" + item5.getName());
         int choice = sc.nextInt();
         
         while(choice < 1 || choice > 5)
@@ -142,9 +142,9 @@ public class ShopApp
 
         switch(choice)
         {
-            case 1: System.out.println(item1.getName()); item1.sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + item1.getStockLevel());
+            case 1: System.out.println(itemArrayin[0].getName()); itemArrayin[0].sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + itemArrayin[0].getStockLevel());
             break;
-            case 2: System.out.println(item2.getName()); item2.sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + item1.getStockLevel());
+            case 2: System.out.println(itemArrayin[1].getName()); itemArrayin[1].sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + itemArrayin[1].getStockLevel());
             break;
             case 3: System.out.println(item3.getName()); item3.sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + item1.getStockLevel());
             break;
