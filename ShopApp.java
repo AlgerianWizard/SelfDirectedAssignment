@@ -168,13 +168,29 @@ public class ShopApp
         }
 
         System.out.println("Which product's price would you like to change?\n1)" + itemArrayin[0].getName() + "\n2)" + itemArrayin[1].getName() + "\n3)" + itemArrayin[2].getName() + "\n4)" + itemArrayin[3].getName() + "\n5)" + itemArrayin[4].getName());
-        sc.nextDouble();
+        int choice = sc.nextInt();
 
         while(choice < 1 || choice > 5) //Input validation while loop
         {
             System.out.println("Invalid input, please enter a number in range 1-5");
             choice = sc.nextInt();
         }
+
+        switch(choice)
+        {
+            case 1: System.out.println(itemArrayin[0].getName()); itemArrayin[0].sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + itemArrayin[0].getStockLevel());
+            break;
+            case 2: System.out.println(itemArrayin[1].getName()); itemArrayin[1].sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + itemArrayin[1].getStockLevel());
+            break;
+            case 3: System.out.println(itemArrayin[2].getName()); itemArrayin[2].sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + itemArrayin[2].getStockLevel());
+            break;
+            case 4: System.out.println(itemArrayin[3].getName()); itemArrayin[3].sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + itemArrayin[3].getStockLevel());
+            break;
+            case 5: System.out.println(itemArrayin[4].getName()); itemArrayin[4].sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + itemArrayin[4].getStockLevel());
+            break;
+            default: System.out.println("This should never print!");
+        }
+
 
     }
 
