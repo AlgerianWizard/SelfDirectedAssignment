@@ -33,7 +33,7 @@ public class Product
         }
     }
 
-    public void setPrice(int setPricein)
+    public void setPrice(double setPricein)
     {
         price = setPricein;
     }
