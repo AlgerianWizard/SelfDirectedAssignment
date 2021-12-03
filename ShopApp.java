@@ -105,13 +105,13 @@ public class ShopApp
         {
             case 1: System.out.println(itemArrayin[0].getName()); itemArrayin[0].buyStock(stockAmount); System.out.println(sB  + stockAmount); System.out.println(cSL + itemArrayin[0].getStockLevel());
             break;
-            case 2: System.out.println(itemArrayin[1].getName()); itemArrayin[0].buyStock(stockAmount); System.out.println(sB + stockAmount); System.out.println(cSL + itemArrayin[0].getStockLevel());
+            case 2: System.out.println(itemArrayin[1].getName()); itemArrayin[1].buyStock(stockAmount); System.out.println(sB + stockAmount); System.out.println(cSL + itemArrayin[1].getStockLevel());
             break;
-            case 3: System.out.println(itemArrayin[2].getName()); itemArrayin[0].buyStock(stockAmount); System.out.println(sB + stockAmount); System.out.println(cSL + itemArrayin[0].getStockLevel());
+            case 3: System.out.println(itemArrayin[2].getName()); itemArrayin[2].buyStock(stockAmount); System.out.println(sB + stockAmount); System.out.println(cSL + itemArrayin[2].getStockLevel());
             break;
-            case 4: System.out.println(itemArrayin[3].getName()); itemArrayin[0].buyStock(stockAmount); System.out.println(sB + stockAmount); System.out.println(cSL + itemArrayin[0].getStockLevel());
+            case 4: System.out.println(itemArrayin[3].getName()); itemArrayin[3].buyStock(stockAmount); System.out.println(sB + stockAmount); System.out.println(cSL + itemArrayin[3].getStockLevel());
             break;
-            case 5: System.out.println(itemArrayin[4].getName()); itemArrayin[0].buyStock(stockAmount); System.out.println(sB + stockAmount); System.out.println(cSL + itemArrayin[0].getStockLevel());
+            case 5: System.out.println(itemArrayin[4].getName()); itemArrayin[4].buyStock(stockAmount); System.out.println(sB + stockAmount); System.out.println(cSL + itemArrayin[4].getStockLevel());
             break;
             default: System.out.println("This should never print!");
             // IDEA: MAYBE ADD BACK BUTTONS OR MAYBE LOOP CUZ THEY WANNA BUY MORE STOCK?
@@ -151,13 +151,18 @@ public class ShopApp
             break;
             case 5: System.out.println(itemArrayin[4].getName()); itemArrayin[4].sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + itemArrayin[4].getStockLevel());
             break;
-            default: System.out.println("This should never print!");
+            default: System.out.println("Invalid input, please enter a number in range 1-5.");
         }
     }
 
     public static void setPrice(Product[] itemArrayin)
     {
+
         Scanner sc = new Scanner(System.in);
+
+        System.out.println("Which product's price would you like to change?\n1)" + itemArrayin[0].getName() + "\n2)" + itemArrayin[1].getName() + "\n3)" + itemArrayin[2].getName() + "\n4)" + itemArrayin[3].getName() + "\n5)" + itemArrayin[4].getName());
+        int choice = sc.nextInt();
+
         System.out.println("Please enter a new price: ");
         double newPrice = sc.nextDouble();
 
@@ -167,20 +172,11 @@ public class ShopApp
             newPrice = sc.nextDouble();
         }
 
-        System.out.println("Which product's price would you like to change?\n1)" + itemArrayin[0].getName() + "\n2)" + itemArrayin[1].getName() + "\n3)" + itemArrayin[2].getName() + "\n4)" + itemArrayin[3].getName() + "\n5)" + itemArrayin[4].getName());
-        int choice = sc.nextInt();
-
-        while(choice < 1 || choice > 5) //Input validation while loop
-        {
-            System.out.println("Invalid input, please enter a number in range 1-5");
-            choice = sc.nextInt();
-        }
-
         switch(choice)
         {
             case 1: System.out.println(itemArrayin[0].getName()); itemArrayin[0].setPrice(newPrice); System.out.println("New Price: " + itemArrayin[0].getPrice());
             break;
-            case 2: System.out.println(itemArrayin[1].getName()); itemArrayin[1].setPrice(newPrice); System.out.println("New Price: " + itemArrayin[1].getprice());
+            case 2: System.out.println(itemArrayin[1].getName()); itemArrayin[1].setPrice(newPrice); System.out.println("New Price: " + itemArrayin[1].getPrice());
             break;
             case 3: System.out.println(itemArrayin[2].getName()); itemArrayin[2].setPrice(newPrice); System.out.println("New Price: " + itemArrayin[2].getPrice());
             break;
@@ -188,7 +184,7 @@ public class ShopApp
             break;
             case 5: System.out.println(itemArrayin[4].getName()); itemArrayin[4].setPrice(newPrice); System.out.println("New Price: " + itemArrayin[4].getPrice());
             break;
-            default: System.out.println("This should never print!");
+            default: System.out.println("Invalid input, please enter a number in range 1-5."); //Input validation built into the switch
         }
     }
 
