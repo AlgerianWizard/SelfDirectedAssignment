@@ -13,11 +13,11 @@ public class ShopApp
 
         //Array declared and initialized with 5 objects ranging from index 0-4         
         Product[] itemArray = new Product[5];
-        itemArray[0] = new Product("Milk", 100, 1.10);
-        itemArray[1] = new Product("Water", 50, 0.50);
-        itemArray[2] = new Product("Soda", 20, 2.0);
-        itemArray[3] = new Product("Juice", 40, 1.40);
-        itemArray[4] = new Product("Energy drink", 45, 0.90);
+        itemArray[0] = new Product("Milk", 10, 1.10); 
+        itemArray[1] = new Product("Water", 5, 1.20);
+        itemArray[2] = new Product("Soda", 10, 1.05);
+        itemArray[3] = new Product("Juice", 5, 1.20);
+        itemArray[4] = new Product("Energy drink", 5, 1.5);
 
         int selection = UI(); //Calls UI method and assigns an integer to selection
         
@@ -32,6 +32,7 @@ public class ShopApp
             case 4: setPrice(itemArray);
             break;
             case 5: TotalValue(itemArray);
+            break;
             default:System.out.println("null");
         }
     }
@@ -42,9 +43,9 @@ public class ShopApp
         Scanner sc = new Scanner(System.in);
         System.out.println("Menu:\n1)Product List\n2)Buy Stock \n3)Sell Stock\n4)Set Prices\n5)Total Stock Value");
         int choice = sc.nextInt();
-        while (choice < 1 || choice > 4)
+        while (choice < 1 || choice > 5)
         {
-            System.out.println("Invalid input, enter number in range 1 - 4");
+            System.out.println("Invalid input, enter number in range 1 - 5");
             choice = sc.nextInt(); 
         }
         
@@ -70,24 +71,17 @@ public class ShopApp
     public static void productList(Product[] itemArrayin)
     {
         System.out.println("Product List:");  
-        
+        int listindex = 1;        
         for (int i = 0; i < itemArrayin.length; i++)
         {
-            System.out.println(itemArrayin[i].getName());
+            System.out.println(listindex + "- " + itemArrayin[i].getName());
+            listindex++;
         }
     }
     
     public static void buyStock(Product[] itemArrayin)
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("How much stock would you like to buy?");
-        int stockAmount = sc.nextInt();
-
-        while(stockAmount < 0)
-        {
-            System.out.println("Invalid input, please enter positive amount");
-            stockAmount = sc.nextInt();
-        }
         
         System.out.println("Which stock would you like to buy?\n1)" + itemArrayin[0].getName() + "\n2)" + itemArrayin[1].getName() + "\n3)" + itemArrayin[2].getName() + "\n4)" + itemArrayin[3].getName() + "\n5)" + itemArrayin[4].getName());
         int choice = sc.nextInt();
@@ -97,21 +91,35 @@ public class ShopApp
             System.out.println("Invalid input, please enter a number in range 1-5");
             choice = sc.nextInt();
         }
+        
+        System.out.println("How much stock would you like to buy?");
+        int stockAmount = sc.nextInt();
+
+        while(stockAmount < 0)
+        {
+            System.out.println("Invalid input, please enter positive amount");
+            stockAmount = sc.nextInt();
+        }
 
         String sB = "Stock bought: ";
         String cSL = "Current stock level: ";
         
         switch(choice)
         {
-            case 1: System.out.println(itemArrayin[0].getName()); itemArrayin[0].buyStock(stockAmount); System.out.println(sB  + stockAmount); System.out.println(cSL + itemArrayin[0].getStockLevel());
+            case 1: System.out.println(itemArrayin[0].getName()); itemArrayin[0].buyStock(stockAmount); 
+            System.out.println(sB  + stockAmount); System.out.println(cSL + itemArrayin[0].getStockLevel());
             break;
-            case 2: System.out.println(itemArrayin[1].getName()); itemArrayin[1].buyStock(stockAmount); System.out.println(sB + stockAmount); System.out.println(cSL + itemArrayin[1].getStockLevel());
+            case 2: System.out.println(itemArrayin[1].getName()); itemArrayin[1].buyStock(stockAmount); 
+            System.out.println(sB + stockAmount); System.out.println(cSL + itemArrayin[1].getStockLevel());
             break;
-            case 3: System.out.println(itemArrayin[2].getName()); itemArrayin[2].buyStock(stockAmount); System.out.println(sB + stockAmount); System.out.println(cSL + itemArrayin[2].getStockLevel());
+            case 3: System.out.println(itemArrayin[2].getName()); itemArrayin[2].buyStock(stockAmount); 
+            System.out.println(sB + stockAmount); System.out.println(cSL + itemArrayin[2].getStockLevel());
             break;
-            case 4: System.out.println(itemArrayin[3].getName()); itemArrayin[3].buyStock(stockAmount); System.out.println(sB + stockAmount); System.out.println(cSL + itemArrayin[3].getStockLevel());
+            case 4: System.out.println(itemArrayin[3].getName()); itemArrayin[3].buyStock(stockAmount); 
+            System.out.println(sB + stockAmount); System.out.println(cSL + itemArrayin[3].getStockLevel());
             break;
-            case 5: System.out.println(itemArrayin[4].getName()); itemArrayin[4].buyStock(stockAmount); System.out.println(sB + stockAmount); System.out.println(cSL + itemArrayin[4].getStockLevel());
+            case 5: System.out.println(itemArrayin[4].getName()); itemArrayin[4].buyStock(stockAmount); 
+            System.out.println(sB + stockAmount); System.out.println(cSL + itemArrayin[4].getStockLevel());
             break;
             default: System.out.println("This should never print!");
             // IDEA: MAYBE ADD BACK BUTTONS OR MAYBE LOOP CUZ THEY WANNA BUY MORE STOCK?
@@ -121,16 +129,8 @@ public class ShopApp
     public static void sellStock(Product[] itemArrayin)
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("How much stock have you sold?");
-        int stockAmount = sc.nextInt();
-
-        while(stockAmount < 0)
-        {
-            System.out.println("Invalid input, please enter positive amount");
-            stockAmount = sc.nextInt();
-        }
         
-        System.out.println("Which stock have you sold?\n1)" + itemArrayin[0].getName() + "\n2)" + itemArrayin[1].getName() + "\n3)" + itemArrayin[2].getName() + "\n4)" + itemArrayin[3].getName() + "\n5)" + itemArrayin[4].getName());
+        System.out.println("Which stock would you like to sell\n1)" + itemArrayin[0].getName() + "\n2)" + itemArrayin[1].getName() + "\n3)" + itemArrayin[2].getName() + "\n4)" + itemArrayin[3].getName() + "\n5)" + itemArrayin[4].getName());
         int choice = sc.nextInt();
         
         while(choice < 1 || choice > 5)
@@ -139,6 +139,15 @@ public class ShopApp
             choice = sc.nextInt();
         }
 
+        System.out.println("How much stock would you like to sell?");
+        int stockAmount = sc.nextInt();
+
+        while(stockAmount < 0)
+        {
+            System.out.println("Invalid input, please enter positive amount");
+            stockAmount = sc.nextInt();
+        }
+        
         switch(choice)
         {
             case 1: System.out.println(itemArrayin[0].getName()); itemArrayin[0].sell(stockAmount); System.out.println("Stock sold: " + stockAmount);  System.out.println("New Stock Level: " + itemArrayin[0].getStockLevel());
@@ -166,7 +175,7 @@ public class ShopApp
         System.out.println("Please enter a new price: ");
         double newPrice = sc.nextDouble();
 
-        while(newPrice < 0) //Input validation while loop
+        while(newPrice < 0.01) //Input validation while loop
         {
             System.out.println("Please enter a positive number for the new price!");
             newPrice = sc.nextDouble();
@@ -190,7 +199,15 @@ public class ShopApp
 
     public static void TotalValue(Product[] itemArrayin)
     {
+        double totalvalue = 0;
+
+        for(int i = 0; i < itemArrayin.length; i++)
+        {
+             double currentvalue = itemArrayin[i].getPrice() * itemArrayin[i].getStockLevel();
+             totalvalue = totalvalue + currentvalue;
+        }
         
+        System.out.println("The total value of stock is: " + totalvalue);
     }
 }
 
