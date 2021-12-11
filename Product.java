@@ -53,8 +53,6 @@ public class Product
     //Return product's price
     public double getPrice()
     {
-        
         return price;
     }
-
 }
