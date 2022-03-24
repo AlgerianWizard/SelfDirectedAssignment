@@ -184,8 +184,22 @@ public class ShopApp
         
         System.out.format("The total value of stock is: %.2f ", totalvalue); // Prints the double but in format of .00 - as normal currency would be.
     }
+
+    public static void AddProduct(Product[] itemArrayin)
+    {
+        // Take in the Array
+        // Ask the user to how many new products they would like to enter, this would set the loop counter to the number
+        // of times they want to add products.
+        // I need to check if its possible to add items to my array before I continue but its fine for now, this is hypothetical
+        // So it seems that I declared the objects and initliazed them, I need to check if I can change the size.
+        // So i can't resize an array that i've already declared and initliazed, I need to do that at
+
+        //Maybe instead of adding we can make 99 products, however only define the number we need, and set the rest as
+        //0? So when we find totalvalue we don't run into any issues.. That would be a nice idea.
+    }
 }
 
 
 
 
+.
