@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="336a511b-1754-4aff-9fd5-5ecff9bf16f9" name="Changes" comment="" />
+    <list default="true" id="336a511b-1754-4aff-9fd5-5ecff9bf16f9" name="Changes" comment="Update 2.01&#10;&#10;Fixed problem with while loop at main, sometimes even when Y is entered to indicate another task is to be selected for the user, the program would end anyway.&#10;&#10;- Put a nested while loop in the last while loop to check for input validation.">
+      <change afterPath="$PROJECT_DIR$/Testing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopApp.java" afterDir="false" />
+    </list>
+    <list id="6d8df848-a3a2-4571-8a52-79c35d805e94" name="Changes by User" comment="">
+      <change beforePath="$PROJECT_DIR$/ShopApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopApp.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/ShopApp.java">
+      <ranges>
+        <range start1="4" end1="6" start2="4" end2="8" changelist="6d8df848-a3a2-4571-8a52-79c35d805e94" />
+        <range start1="38" end1="38" start2="40" end2="46" changelist="336a511b-1754-4aff-9fd5-5ecff9bf16f9" />
+        <range start1="200" end1="205" start2="208" end2="208" changelist="336a511b-1754-4aff-9fd5-5ecff9bf16f9" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -21,7 +44,19 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunManager">
+    <configuration name="ShopApp" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ShopApp" />
+      <module name="SelfDirectedAssignment" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -31,16 +66,35 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1648139952777</updated>
+      <workItem from="1648314886733" duration="2084000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update 2.01&#10;&#10;Fixed problem with while loop at main, sometimes even when Y is entered to indicate another task is to be selected for the user, the program would end anyway.&#10;&#10;- Put a nested while loop in the last while loop to check for input validation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update 2.01&#10;&#10;Fixed problem with while loop at main, sometimes even when Y is entered to indicate another task is to be selected for the user, the program would end anyway.&#10;&#10;- Put a nested while loop in the last while loop to check for input validation." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ShopApp.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="1" />
+          <line>10</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

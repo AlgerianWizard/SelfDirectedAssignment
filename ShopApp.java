@@ -36,6 +36,12 @@ public class ShopApp
             UI(itemArray);
             System.out.println(anotherTask);
             answer = sc.next().charAt(0);
+            //Nested Y/N checker, making sure user always types one or the other.
+            while (answer != 'Y' && answer != 'N')
+            {
+                System.out.println("Please enter a single character 'Y' or 'N'.");
+                answer = sc.next().charAt(0);
+            }
         }
     }
 
@@ -198,8 +204,3 @@ public class ShopApp
         //0? So when we find totalvalue we don't run into any issues.. That would be a nice idea.
     }
 }
-
-
-
-
-.
