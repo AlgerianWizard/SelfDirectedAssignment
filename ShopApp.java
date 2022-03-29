@@ -2,6 +2,7 @@
  * Student Number: 2209133
  * Self Directed Assignment */
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class ShopApp 
 {
@@ -19,7 +20,7 @@ public class ShopApp
         itemArray[4] = new Product("Energy drink", 10, 1.50);
         UI(itemArray);
         
-        String anotherTask = "Do you want to peform another task?(Y/N)";
+        String anotherTask = "Do you want to perform another task?(Y/N)";
 
         Scanner sc = new Scanner(System.in);
         System.out.println(anotherTask);
@@ -43,10 +44,10 @@ public class ShopApp
     public static void UI(Product[] itemArray) //Returns selection from first menu 
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Menu:\n1)Product List\n2)Buy Stock \n3)Sell Stock\n4)Set Prices\n5)Total Stock Value");
+        System.out.println("Menu:\n1)Product List\n2)Buy Stock \n3)Sell Stock\n4)Set Prices\n5)Total Stock Value\n6)Add Product");
         int choice = sc.nextInt();
 
-        while(choice < 1 || choice > 5)
+        while(choice < 1 || choice > 6)
         {
             System.out.println("Invalid input, enter number in range 1 - 5"); 
             choice = sc.nextInt();
@@ -64,6 +65,8 @@ public class ShopApp
             case 4: setPrice(itemArray);
             break;
             case 5: TotalValue(itemArray);
+            break;
+            case 6: AddProduct(itemArray);
             break;
             default:System.out.println("null");
         }
@@ -190,16 +193,35 @@ public class ShopApp
         // Take in the Array
         // Ask the user to how many new products they would like to enter, this would set the loop counter to the number
         // of times they want to add products.
-        // I need to check if its possible to add items to my array before I continue but its fine for now, this is hypothetical
-        // So it seems that I declared the objects and initliazed them, I need to check if I can change the size.
-        // So i can't resize an array that i've already declared and initliazed, I need to do that at
+        // I need to check if its possible to add items to my array before I continue but it's fine for now, this is hypothetical
+        // So it seems that I declared the objects and initialized them, I need to check if I can change the size.
+        // So i can't resize an array that i've already declared and initialized, I need to do that at
 
         //Maybe instead of adding we can make 99 products, however only define the number we need, and set the rest as
         //0? So when we find totalvalue we don't run into any issues.. That would be a nice idea.
+
+        System.out.println("What is the name of the product you would like to add?");
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+
+        String[] fruits = new String[3];
+        fruits[0] = "Apple";
+        fruits[1] = "Strawberry";
+        fruits[2] = "Potato";
+
+        System.out.println(fruits[2]);
+
+        ArrayList fruitlist = new ArrayList();
+        fruitlist.add("Orange");
+        fruitlist.add("Mango");
+        fruitlist.add("Onion");
+        fruitlist.add(input);
+
+
+
+
+
+        System.out.println(fruitlist.get(0));
+
     }
 }
-
-
-
-
-.
