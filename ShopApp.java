@@ -6,19 +6,31 @@ import java.util.ArrayList;
 
 public class ShopApp 
 {
-    public static void main(String[]args)
+    public static void main(String[]args) //
     {
         System.out.println("Student Number: 2209133");
         System.out.println("Welcome to the shop app!");
 
-        //Array declared and initialized with 5 objects ranging from index 0-4         
+        //Array declared and initialized with 5 objects ranging from index 0-4
+        /*
         Product[] itemArray = new Product[5];
         itemArray[0] = new Product("Milk", 10, 1.60); 
         itemArray[1] = new Product("Water", 10, 0.10);
         itemArray[2] = new Product("Soda", 10, 2.00);
         itemArray[3] = new Product("Juice", 10, 1.00);
         itemArray[4] = new Product("Energy drink", 10, 1.50);
-        UI(itemArray);
+         */
+
+        //Default items that already come with the application - can be changed ofc.
+        ArrayList<Product> list = new ArrayList<>();
+        list.add(new Product("Milk", 10, 1.60));
+        list.add(new Product("Water",10,0.10));
+        list.add(new Product("Soda", 10, 2.00));
+        list.add(new Product("Juice", 10, 1.00));
+        list.add(new Product("Energy drink", 10, 1.50));
+        UI(list);
+
+
         
         String anotherTask = "Do you want to perform another task?(Y/N)";
 
@@ -34,14 +46,14 @@ public class ShopApp
         
         while(answer == 'Y')
         {
-            UI(itemArray);
+            UI(list);
             System.out.println(anotherTask);
             answer = sc.next().charAt(0);
         }
     }
 
 
-    public static void UI(Product[] itemArray) //Returns selection from first menu 
+    public static <Arraylist> void UI(ArrayList<Product> list) //Returns selection from first menu //
     {
         Scanner sc = new Scanner(System.in);
         System.out.println("Menu:\n1)Product List\n2)Buy Stock \n3)Sell Stock\n4)Set Prices\n5)Total Stock Value\n6)Add Product");
@@ -56,34 +68,35 @@ public class ShopApp
 
         switch(choice) //Menu with switch also passes arrays to all the functions
         {
-            case 1: productList(itemArray); 
+            case 1: productList(list);
             break;  
-            case 2: buyStock(itemArray);
+            case 2: buyStock(list);
             break;
-            case 3: sellStock(itemArray);
+            case 3: sellStock(list);
             break;
-            case 4: setPrice(itemArray);
+            case 4: setPrice(list);
             break;
-            case 5: TotalValue(itemArray);
+            case 5: TotalValue(list);
             break;
-            case 6: AddProduct(itemArray);
+            case 6: AddProduct(list);
             break;
             default:System.out.println("null");
         }
     }
 
-    public static void productList(Product[] itemArrayin)
+    public static void productList(ArrayList<Product> list)
     {
-        System.out.println("Product List + (Stock Level):");  
+        System.out.println("Product List + (Stock Level):");
+
         int listindex = 1;
-        for (int i = 0; i < itemArrayin.length; i++)
+        for (int i = 0; i <list.size(); i++)
         {
-            System.out.println(listindex + "- " + itemArrayin[i].getName() + " ; " + itemArrayin[i].getStockLevel());
+            System.out.println(listindex + "- "+ list.get(i).getName() + " ; " + list.get(i).getStockLevel());
             listindex++;
         }
     }
     
-    public static void buyStock(Product[] itemArrayin)
+    public static void buyStock(ArrayList<Product> itemArrayin) //Todo 4) Update Array here to make sure it's in the Arraylist
     {
         Scanner sc = new Scanner(System.in);
         
@@ -111,7 +124,7 @@ public class ShopApp
         System.out.println("Current stock level: " + itemArrayin[choice-1].getStockLevel());
     }
     
-    public static void sellStock(Product[] itemArrayin)
+    public static void sellStock(ArrayList<Product> itemArrayin) //Todo 5) Update Array here to make sure it's in the Arraylist
     {
         Scanner sc = new Scanner(System.in);
         
@@ -145,7 +158,7 @@ public class ShopApp
         }
     }
 
-    public static void setPrice(Product[] itemArrayin)
+    public static void setPrice(ArrayList<Product> itemArrayin) //Todo 6) Update Array here to make sure it's in the Arraylist
     {
         Scanner sc = new Scanner(System.in);
 
@@ -175,7 +188,7 @@ public class ShopApp
         System.out.println("New price: " + itemArrayin[choice-1].getPrice());
     }
 
-    public static void TotalValue(Product[] itemArrayin)
+    public static void TotalValue(ArrayList<Product> itemArrayin) //Todo 7) Update Array here to make sure it's in the Arraylist
     {
         double totalvalue = 0;
 
@@ -188,7 +201,7 @@ public class ShopApp
         System.out.format("The total value of stock is: %.2f ", totalvalue); // Prints the double but in format of .00 - as normal currency would be.
     }
 
-    public static void AddProduct(Product[] itemArrayin)
+    public static void AddProduct(ArrayList<Product> itemArrayin) //Todo 8) Update Array here to make sure it's in the Arraylist
     {
         // Take in the Array
         // Ask the user to how many new products they would like to enter, this would set the loop counter to the number
@@ -203,25 +216,7 @@ public class ShopApp
         System.out.println("What is the name of the product you would like to add?");
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
-
-        String[] fruits = new String[3];
-        fruits[0] = "Apple";
-        fruits[1] = "Strawberry";
-        fruits[2] = "Potato";
-
-        System.out.println(fruits[2]);
-
-        ArrayList fruitlist = new ArrayList();
-        fruitlist.add("Orange");
-        fruitlist.add("Mango");
-        fruitlist.add("Onion");
-        fruitlist.add(input);
-
-
-
-
-
-        System.out.println(fruitlist.get(0));
+        //TODO
 
     }
 }
