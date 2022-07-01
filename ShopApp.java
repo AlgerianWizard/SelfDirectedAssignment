@@ -96,11 +96,11 @@ public class ShopApp
         }
     }
     
-    public static void buyStock(ArrayList<Product> itemArrayin) //Todo 4) Update Array here to make sure it's in the Arraylist
+    public static void buyStock(ArrayList<Product> list)
     {
         Scanner sc = new Scanner(System.in);
         
-        System.out.println("Which stock would you like to buy?\n1)" + itemArrayin[0].getName() + "\n2)" + itemArrayin[1].getName() + "\n3)" + itemArrayin[2].getName() + "\n4)" + itemArrayin[3].getName() + "\n5)" + itemArrayin[4].getName());
+        System.out.println("Which stock would you like to buy?\n1)" + list.get(0).getName() + "\n2)" + list.get(1).getName() + "\n3)" + list.get(2).getName() + "\n4)" + list.get(3).getName() + "\n5)" + list.get(4).getName());
         int choice = sc.nextInt();
         
         while(choice < 1 || choice > 5)
@@ -118,17 +118,17 @@ public class ShopApp
             stockAmount = sc.nextInt();
         }
         
-        System.out.println(itemArrayin[choice-1].getName());
-        itemArrayin[choice-1].buyStock(stockAmount);
+        System.out.println(list.get(choice-1).getName());
+        list.get(choice-1).buyStock(stockAmount);
         System.out.println("Stock bought: " + stockAmount);
-        System.out.println("Current stock level: " + itemArrayin[choice-1].getStockLevel());
+        System.out.println("Current stock level: " + list.get(choice-1).getStockLevel());
     }
     
-    public static void sellStock(ArrayList<Product> itemArrayin) //Todo 5) Update Array here to make sure it's in the Arraylist
+    public static void sellStock(ArrayList<Product> list)
     {
         Scanner sc = new Scanner(System.in);
         
-        System.out.println("Which stock would you like to sell\n1)" + itemArrayin[0].getName() + "\n2)" + itemArrayin[1].getName() + "\n3)" + itemArrayin[2].getName() + "\n4)" + itemArrayin[3].getName() + "\n5)" + itemArrayin[4].getName());
+        System.out.println("Which stock would you like to sell\n1)" + list.get(0).getName() + "\n2)" + list.get(1).getName() + "\n3)" + list.get(2).getName() + "\n4)" + list.get(3).getName() + "\n5)" + list.get(4).getName());
         int choice = sc.nextInt();
         
         while(choice < 1 || choice > 5)
@@ -146,23 +146,23 @@ public class ShopApp
             stockAmount = sc.nextInt();
         }
         
-        System.out.println(itemArrayin[choice-1].getName());
-        if (itemArrayin[choice-1].sell(stockAmount) == true)
+        System.out.println(list.get(choice-1).getName());
+        if (list.get(choice-1).sell(stockAmount)) //If statements without == always default to true so there's no point writing == true
         {
             System.out.println("Stock sold: " + stockAmount);
-            System.out.println("Current stock level: " + itemArrayin[choice-1].getStockLevel());
+            System.out.println("Current stock level: " + list.get(choice-1).getStockLevel());
         }
         else
         {
-            System.out.println("Sorry, the amount of stock you have entered is more than you have.\nCurrent stock level: " + itemArrayin[choice-1].getStockLevel());
+            System.out.println("Sorry, the amount of stock you have entered is more than you have.\nCurrent stock level: " + list.get(choice-1).getStockLevel());
         }
     }
 
-    public static void setPrice(ArrayList<Product> itemArrayin) //Todo 6) Update Array here to make sure it's in the Arraylist
+    public static void setPrice(ArrayList<Product> list)
     {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Which product's price would you like to change?\n1)" + itemArrayin[0].getName() + "\n2)" + itemArrayin[1].getName() + "\n3)" + itemArrayin[2].getName() + "\n4)" + itemArrayin[3].getName() + "\n5)" + itemArrayin[4].getName());
+        System.out.println("Which product's price would you like to change?\n1)" + list.get(0).getName() + "\n2)" + list.get(1).getName() + "\n3)" + list.get(2).getName() + "\n4)" + list.get(3).getName() + "\n5)" + list.get(4).getName());
         int choice = sc.nextInt();
 
         while(choice < 1 || choice > 5)
@@ -171,7 +171,7 @@ public class ShopApp
             choice = sc.nextInt();
         }
 
-        System.out.println(choice + "- " + itemArrayin[choice-1].getName());
+        System.out.println(choice + "- " + list.get(choice-1).getName());
         System.out.println("Please enter a new price: ");
         
         double newPrice = sc.nextDouble();
@@ -182,41 +182,32 @@ public class ShopApp
             newPrice = sc.nextDouble();
         }
 
-        System.out.println(itemArrayin[choice-1].getName());
-        System.out.println("Old price: " + itemArrayin[choice-1].getPrice());
-        itemArrayin[choice-1].setPrice(newPrice);
-        System.out.println("New price: " + itemArrayin[choice-1].getPrice());
+        System.out.println(list.get(choice-1).getName());
+        System.out.println("Old price: " + list.get(choice-1).getPrice());
+        list.get(choice-1).setPrice(newPrice);
+        System.out.println("New price: " + list.get(choice-1).getPrice());
     }
 
-    public static void TotalValue(ArrayList<Product> itemArrayin) //Todo 7) Update Array here to make sure it's in the Arraylist
+    public static void TotalValue(ArrayList<Product> list)
     {
         double totalvalue = 0;
 
-        for(int i = 0; i < itemArrayin.length; i++)
+        for(int i = 0; i < list.size(); i++)
         {
-             double currentvalue = itemArrayin[i].getPrice() * itemArrayin[i].getStockLevel();
+             double currentvalue = list.get(i).getPrice() * list.get(i).getStockLevel();
              totalvalue = totalvalue + currentvalue;
         }
         
         System.out.format("The total value of stock is: %.2f ", totalvalue); // Prints the double but in format of .00 - as normal currency would be.
     }
 
-    public static void AddProduct(ArrayList<Product> itemArrayin) //Todo 8) Update Array here to make sure it's in the Arraylist
+    public static void AddProduct(ArrayList<Product> list)
     {
-        // Take in the Array
-        // Ask the user to how many new products they would like to enter, this would set the loop counter to the number
-        // of times they want to add products.
-        // I need to check if its possible to add items to my array before I continue but it's fine for now, this is hypothetical
-        // So it seems that I declared the objects and initialized them, I need to check if I can change the size.
-        // So i can't resize an array that i've already declared and initialized, I need to do that at
-
-        //Maybe instead of adding we can make 99 products, however only define the number we need, and set the rest as
-        //0? So when we find totalvalue we don't run into any issues.. That would be a nice idea.
-
         System.out.println("What is the name of the product you would like to add?");
         Scanner sc = new Scanner(System.in);
-        String input = sc.nextLine();
-        //TODO
-
+        String inputName = sc.nextLine();
+        System.out.println("Enter price for new product:");
+        double inputPrice = sc.nextDouble();
+        list.add(new Product(inputName,0, inputPrice));
     }
 }
