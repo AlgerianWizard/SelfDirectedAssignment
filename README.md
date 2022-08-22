@@ -2,7 +2,7 @@
 Uni Assignment(Shop Application)
 
 Hello, first time doing one of these. This is was a first year project for my programming module. Its fairly simple but I'm looking to expand it and learn as I go along
-so I would apreciate any feedback and improvements!
+so I would appreciate any feedback and improvements!
 
 
 1. What is this?
